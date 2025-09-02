@@ -1,27 +1,27 @@
-name : Deploy the backend
+name : Deploy the ws-backend
 on:
   push:
     branched:[ main ]
 jobs:
   build:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
     steps :
       - name : Checkout the code
-        uses:actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name : Docker Login
         uses : docker/login-action@v2
         with : 
-          username:${{secrets.DOCKERHUB_USERNAME}}
-          password:${{secrets.DOCKERHUB_PASSWORD}}
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
 
 
       - name : build and push
         uses : docker/build-push-action@v4
         with : 
           context: .
-          file: ./docker/Dockerfile.ws
+          file: ./docker/Dockerfile.fr
           push: true
-          tags: shivamkmikshra/todo-app-ws:${{github.sha}} ##get a unique id for the  new cd
+          tags: shivamkmikshra/todo-app-frontend:${{github.sha}} ##get a unique id for the  new cd
 
           ##TODO=> next we deplloy on new vm 
