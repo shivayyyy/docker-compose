@@ -22,7 +22,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile.backend
           push: true
-          tags: shivamkmikshra/todo-app-frontend:${{github.sha}} ##get a unique id for the  new cd
+          tags: shivamkmikshra/todo-app-backend:${{github.sha}} ##get a unique id for the  new cd
 
           ##TODO=> next we deplloy on new vm 
           ##todo
