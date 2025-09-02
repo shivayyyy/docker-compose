@@ -25,3 +25,4 @@ jobs:
           tags: shivamkmikshra/todo-app-frontend:${{github.sha}} ##get a unique id for the  new cd
 
           ##TODO=> next we deplloy on new vm 
+          ##todo
