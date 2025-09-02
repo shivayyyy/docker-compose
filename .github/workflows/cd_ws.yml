@@ -1,4 +1,4 @@
-name : Deploy the http-backend
+name : Deploy the ws-backend
 on:
   push:
     branches: [ main ]
@@ -20,9 +20,9 @@ jobs:
         uses : docker/build-push-action@v4
         with : 
           context: .
-          file: ./docker/Dockerfile.backend
+          file: ./docker/Dockerfile.ws
           push: true
-          tags: shivamkmishra/todo-app-backend:${{github.sha}} ##get a unique id for the  new cd
+          tags: shivamkmishra/todo-app-ws:${{github.sha}} ##get a unique id for the  new cd
 
           ##TODO=> next we deploy on new vm 
       - name: deploy to vm
@@ -31,4 +31,4 @@ jobs:
           mkdir -p /home/runner/.ssh
           ls /home/runner/.ssh
           chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@139.59.20.73 -t "docker stop todo_backend && docker run --name todo_backend -d -p 8080:8080 shivamkmishra/todo-app-backend:${{github.sha}} "
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@64.856.458.45 -t "docker stop todo_ws && docker run --name todo_ws -d -p 8081:8081 shivamkmishra/todo-app-ws:${{github.sha}} "
