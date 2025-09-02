@@ -20,7 +20,7 @@ jobs:
         uses : docker/build-push-action@v4
         with : 
           context: .
-          file: ./docker/Dockerfile.fr
+          file: ./docker/Dockerfile.backend
           push: true
           tags: shivamkmikshra/todo-app-frontend:${{github.sha}} ##get a unique id for the  new cd
 
