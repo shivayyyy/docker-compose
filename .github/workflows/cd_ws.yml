@@ -31,4 +31,4 @@ jobs:
           mkdir -p /home/runner/.ssh
           ls /home/runner/.ssh
           chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@64.856.458.45 -t "docker stop todo_ws && docker run --name todo_ws -d -p 8081:8081 shivamkmishra/todo-app-ws:${{github.sha}} "
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@139.59.20.73 -t "docker stop todo_ws || true && docker run  --name todo_ws -d -p 8081:8081 shivamkmishra/todo-app-ws:${{github.sha}}"
