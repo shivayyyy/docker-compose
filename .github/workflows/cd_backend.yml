@@ -32,3 +32,4 @@ jobs:
           ls /home/runner/.ssh
           chmod 700 /home/runner/ssh_key
           ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@139.59.20.73 -t "docker stop todo_backend && docker run --name todo_backend -d -p 8080:8080 shivamkmishra/todo-app-backend:${{github.sha}} "
+##end here
