@@ -1,7 +1,7 @@
 name : Deploy the ws-backend
 on:
   push:
-    branched:[ main ]
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
